@@ -63,15 +63,15 @@ int main(int argc, char* argv[]) {
 int recv_file(int sock, char* file_name) {
  
     char send_str [MAX_SEND_BUF]; //the message 
-    int file_open_fd; /* file handle for receiving file*/
+    int file_open_fd; // the file descriptor corresponding to the file opened
     ssize_t sent_bytes, rcvd_bytes, rcvd_file_size;
-    int recv_count; /* count of recv() calls*/
-    char recv_str[MAX_RECV_BUF]; /* buffer to hold received data */
-    size_t send_strlen; /* length of transmitted string */
+    int recv_count; // number of "packets" transferred
+    char recv_str[MAX_RECV_BUF]; //the buffer 
+    size_t send_strlen; 
 
-    sprintf(send_str, "%s\n", file_name); /* add CR/LF (new line) */
-    send_strlen = strlen(send_str); /* length of message to be transmitted */
-    if( (sent_bytes = send(sock, file_name, send_strlen, 0)) < 0 ) {
+    sprintf(send_str, "%s\n", file_name); //adjust for line endings
+    send_strlen = strlen(send_str); // length of transmitted word
+    if( (sent_bytes = send(sock, file_name, send_strlen, 0)) < 0 ) { //attempt sending the filename
         perror("send error");
         return -1;
     }
