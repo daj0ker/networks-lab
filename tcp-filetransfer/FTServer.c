@@ -7,8 +7,8 @@
 #include <string.h> 
 #include <stdlib.h> //required for atoi
 #include <fcntl.h> //required for open, O_RDONLY 
-#include <unistd.h> //required for close, read */
-#define SRV_PORT 9999 // default port number */
+#include <unistd.h> //required for close, read 
+#define SRV_PORT 9999 // default port number 
 #define LISTEN_ENQ 5 // for listen backlog
 #define MAX_RECV_BUF 256
 #define MAX_SEND_BUF 256
